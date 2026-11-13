@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tablero de Laboratorios · Areandina</title>
+<meta name="description" content="Alistamiento de prácticas de los Laboratorios de Salud y Deporte de Areandina.">
+<meta name="theme-color" content="#78B038">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-180.png">
+<link rel="stylesheet" href="estilos.css">
+<script src="config.js"></script>
+<script src="comun.js"></script>
+</head>
+<body>
+<div class="franja"></div>
+
+<div class="cargando" id="vCarga">
+  <img src="icons/logo.png" alt="Areandina">
+  <div class="giro" aria-hidden="true"></div>
+  <div id="cargaTxt">Abriendo el tablero…</div>
+</div>
+
+<main class="ingreso oculto" id="vIngreso">
+  <div class="tarjeta">
+    <div class="marca">
+      <img src="icons/logo.png" alt="Areandina">
+      <div><h1>Tablero de Laboratorios</h1><p>Laboratorios de Salud y Deporte</p></div>
+    </div>
+
+    <form id="fCorreo" autocomplete="on" novalidate>
+      <div class="campo">
+        <label for="correo">Correo institucional</label>
+        <input type="email" id="correo" name="email" inputmode="email" autocomplete="email" placeholder="nombre@areandina.edu.co" required>
+      </div>
+      <label class="check"><input type="checkbox" id="acepto">
+        <span>Leí y acepto la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad y tratamiento de datos</a>, los <a href="terminos.html" target="_blank" rel="noopener">términos y condiciones</a> y la <a href="cookies.html" target="_blank" rel="noopener">política de cookies</a>.</span></label>
+      <button class="btn btn-primario" type="submit" id="bPedir">Enviarme un código</button>
+    </form>
+
+    <form id="fCodigo" class="oculto" novalidate>
+      <p style="font-size:14px;margin:0 0 4px;">Escribe el código de 6 cifras que enviamos a <b id="correoTxt"></b>. Vence en 10 minutos.</p>
+      <div class="campo">
+        <label for="codigo">Código</label>
+        <input type="text" id="codigo" class="codigo" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" required>
+      </div>
+      <button class="btn btn-primario" type="submit" id="bVerificar">Entrar</button>
+      <div style="display:flex;justify-content:space-between;margin-top:8px;">
+        <button class="btn btn-texto" type="button" id="bOtroCorreo">Usar otro correo</button>
+        <button class="btn btn-texto" type="button" id="bReenviar">Enviar otro código</button>
+      </div>
+    </form>
+
+    <div id="msg" class="mensaje oculto" role="status" aria-live="polite"></div>
+  </div>
+  <nav class="pie" aria-label="Políticas">
+    <a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a><a href="cookies.html">Cookies</a>
+    <span>© Fundación Universitaria del Área Andina</span>
+  </nav>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
